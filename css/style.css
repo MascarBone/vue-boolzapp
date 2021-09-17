@@ -4,8 +4,11 @@ img {
 ul {
     list-style: none;
     padding-left: 0;
+    margin-bottom: 0;
 }
-
+p {
+    margin-bottom: 0;
+}
 .my_bg-blue-water {
     background-color: rgb(0, 150, 136);
 }
@@ -24,10 +27,20 @@ ul {
 .my_bg-green-sent {
     background-color: rgb(213, 249, 186);
 }
-.my_bg-white {
+.my_bg-white-received {
     background-color: rgb(255, 255, 255);
 }
-
+.my_box-conversation {
+    background-image: url('../img/mine.jpg');
+    background-repeat: repeat;
+}
+.my_border-radius {
+    border-radius: 15px;
+    padding: 5px 10px;
+}
 .wep-app {
     background-color: rgba(189, 120, 120, 0.664);
+}
+.overflow-y-scroll {
+    overflow-y: scroll;
 }

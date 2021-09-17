@@ -26,7 +26,7 @@
             <div class="row gx-0 wep-app">
                 <div class="col-4">
                     <div class="d-flex justify-content-between align-items-center my_profile">
-                        <div class="my_profile_info">
+                        <div class="d-flex align-items-center my_profile_info">
                             <img src="img/avatar_1.jpg" alt="">
                             <h4>Nome Utente</h4>
                         </div>
@@ -37,7 +37,7 @@
                         </div>
                     </div>
 
-                    <div class="my_notices my_bg-light-blue">
+                    <div class="d-flex align-items-center my_notices my_bg-light-blue">
                         <i class="fas fa-bell-slash"></i>
                         <div>
                             <h5>Ricevi notifiche di nuovi messaggi</h3>
@@ -45,30 +45,32 @@
                         </div>
                     </div>
                     
-                    <div class="">
+                    <div class="d-flex align-items-center">
                         <i class="fas fa-search"></i>
-                        <input type="text" placeholder="Cerca o inizia una nuova chat">
+                        <input type="text" placeholder="Cerca o inizia una nuova chat" class="flex-grow-1">
                     </div>
         
                     <div class="">
-                        <ul>
+                        <ul class="overflow-y-scroll">
                             <li v-for="(element,index) in contacts">
-                                <img src="img/avatar_3.jpg" alt="profile pic">
-                                <div>
-                                    <h4>Nome Utente</h4>
-                                    <p>testo preview messagggio</p>
-                                    <span>ora invio mesasggio</span>
-                                </div>
+                                <div class="d-flex align-items-center">
+                                    <img src="img/avatar_3.jpg" alt="profile pic">
+                                    <div class="">
+                                        <h4>Nome Utente</h4>
+                                        <p>testo preview messagggio</p>                                        
+                                    </div>
+                                    <span >ora invio mesasggio</span>
+                                </div>                                
                             </li>
                         </ul>
                     </div>
                     
                     
                 </div>
-                <div class="col-8 d-flex flex-column">
+                <div class="col-8 d-flex flex-column ">
                     <div class="d-flex justify-content-between align-items-center my_contact-profile">
-                        <div class="d-flex my_contact-profile_info">
-                            <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center my_contact-profile_info">
+                            <div class="">
                                 <img src="img/avatar_6.jpg" alt="">
                             </div>
                             <div class="d-flex flex-column justify-content-center">
@@ -83,13 +85,31 @@
                         </div>
                     </div>
 
-                    <div class="flex-grow-1 my_box-conversation">
-
+                    <div class="flex-grow-1 my_box-conversation overflow-y-scroll">
+                        <div class="mb-5"></div>
+                        <div class="row gx-0 flex-row-reverse me-5 mb-3">
+                            <div class="col-5 my_bg-green-sent my_border-radius">
+                                <p>Hai portato a spasso il cane?</p>
+                                <span>ora del messaggio</span>
+                            </div>
+                        </div>
+                        <div class="row gx-0 flex-row-reverse me-5 mb-3">
+                            <div class="col-5 my_bg-green-sent my_border-radius">
+                                <p>Hai portato a spasso il cane?</p>
+                                <span>ora del messaggio</span>
+                            </div>
+                        </div>
+                        <div class="row gx-0 ms-5 mb-3">
+                            <div class="col-5 my_bg-white-received my_border-radius">
+                                <p>Hai portato a spasso il cane?</p>
+                                <span>ora del messaggio</span>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="my_box-chat">
+                    <div class="d-flex align-items-center my_box-chat">
                         <i class="far fa-smile"></i>
-                        <input type="text" placeholder="Scrivi un messaggio" name="" id="">
+                        <input type="text" placeholder="Scrivi un messaggio" name="" id="" class="flex-grow-1">
                         <i class="fas fa-microphone"></i>
                     </div>
                 </div>
