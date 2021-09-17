@@ -24,7 +24,7 @@
     <div id="app">
         <div class="container">
             <div class="row gx-0 wep-app">
-                <div class="col-4">
+                <div class="col-4 d-flex flex-column">
                     <div class="d-flex justify-content-between align-items-center my_profile">
                         <div class="d-flex align-items-center my_profile_info">
                             <img src="img/avatar_1.jpg" alt="">
@@ -50,16 +50,16 @@
                         <input type="text" placeholder="Cerca o inizia una nuova chat" class="flex-grow-1">
                     </div>
         
-                    <div class="">
+                    <div class="flex-grow-1">
                         <ul class="overflow-y-scroll">
                             <li v-for="(element,index) in contacts">
-                                <div class="d-flex align-items-center">
+                                <div class="d-flex align-items-center position-relative">
                                     <img src="img/avatar_3.jpg" alt="profile pic">
                                     <div class="">
                                         <h4>Nome Utente</h4>
                                         <p>testo preview messagggio</p>                                        
                                     </div>
-                                    <span >ora invio mesasggio</span>
+                                    <span class="my_time-preview">ora invio mesasggio</span>
                                 </div>                                
                             </li>
                         </ul>

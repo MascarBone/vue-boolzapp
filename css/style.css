@@ -40,7 +40,15 @@ p {
 }
 .wep-app {
     background-color: rgba(189, 120, 120, 0.664);
+    height: calc(100vh - 50px);
+    margin: 25px 0;
 }
 .overflow-y-scroll {
     overflow-y: scroll;
+    height: 100%;
+}
+.my_time-preview {
+    position: absolute;
+    top: 2px;
+    right: 2px;
 }
