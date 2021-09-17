@@ -1,0 +1,33 @@
+img {
+    width: 100px;
+}
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.my_bg-blue-water {
+    background-color: rgb(0, 150, 136);
+}
+.my_bg-grey {
+    background-color: rgb(219, 219, 211);
+}
+.my_bg-light-grey {
+    background-color: rgb(234, 234, 234);
+}
+.my_bg-light-blue {
+    background-color: rgb(142, 218, 252);
+}
+.my_bg-light-orange-grey {
+    background-color: rgb(243, 238, 234);
+}
+.my_bg-green-sent {
+    background-color: rgb(213, 249, 186);
+}
+.my_bg-white {
+    background-color: rgb(255, 255, 255);
+}
+
+.wep-app {
+    background-color: rgba(189, 120, 120, 0.664);
+}
