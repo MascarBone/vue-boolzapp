@@ -65,7 +65,7 @@
                     <div class="flex-grow-1 my_bg-white">
                         <ul class="overflow-y-scroll">
                             <li v-for="(element,index) in contacts">
-                                <div @click="selectContact(index)" class="my_contacts" >
+                                <div @click="selectContact(index)" class="my_contacts">
                                     <div class="my_profile_avatar">
                                         <img :src="'img/avatar' + element.avatar + '.jpg'" alt="profile pic">
                                     </div>
@@ -106,20 +106,12 @@
                                 <p>{{element.text}}</p>
                                 <span class="my_dialogue-time-preview">{{element.date}}</span>
                             </div>
-                            <!-- <div class="col-5 my_dialogue_text my_dialogue_text-sent">
-                                <p>Hai portato a spasso il cane?</p>
-                                <span>ora del messaggio</span>
-                            </div>
-                            <div class="col-5 my_dialogue_text my_dialogue_text-received">
-                                <p>Hai portato a spasso il cane?</p>
-                                <span>ora del messaggio</span>
-                            </div> -->
                         </div>
                     </div>
 
                     <div class="my_box-chat">
                         <i class="far fa-smile"></i>
-                        <input type="text" placeholder="Scrivi un messaggio" name="" id="" class="flex-grow-1">
+                        <input @keyup.enter="textSent()" v-model="textChat" type="text" placeholder="Scrivi un messaggio" class="flex-grow-1">
                         <i class="fas fa-microphone"></i>
                     </div>
                 </div>

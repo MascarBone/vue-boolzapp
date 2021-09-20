@@ -89,13 +89,33 @@ const app = new Vue({
             },
         ],
 
-        activeContact : 3,
+        activeContact : 0,
+
+        textChat: '',
         
     },
 
     methods: {
         selectContact(index) {
             this.activeContact = index;
+        },
+
+        getTime() {
+            const now = new Date();
+            return (now.getDate() < 10 ? '0' : '') + now.getDate() + "/" 
+                + ((now.getMonth()+1) < 10 ? '0' : '') + (now.getMonth()+1) + "/"
+                + now.getFullYear() + " "
+                + now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
+        },
+
+        textSent() {
+            const obj = {
+                date: this.getTime(),
+                text: this.textChat.trim(),
+                status: 'sent',
+            }
+            this.contacts[this.activeContact].messages.push(obj);
+            this.textChat = '';
         }
     },
 
