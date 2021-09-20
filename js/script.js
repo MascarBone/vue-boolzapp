@@ -96,10 +96,18 @@ const app = new Vue({
     },
 
     methods: {
+        /**
+         * 
+         * @param {number} index the current selected contact
+         */
         selectContact(index) {
             this.activeContact = index;
         },
 
+        /**
+         * Function to get the date of the current time
+         * @returns a string of the current time
+         */
         getTime() {
             const now = new Date();
             return (now.getDate() < 10 ? '0' : '') + now.getDate() + "/" 
@@ -108,14 +116,34 @@ const app = new Vue({
                 + now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
         },
 
+        /**
+         * Function that add a message to the text sent
+         * adding it to the messages sent
+         */ 
         textSent() {
             const obj = {
                 date: this.getTime(),
                 text: this.textChat.trim(),
                 status: 'sent',
-            }
+            }            
             this.contacts[this.activeContact].messages.push(obj);
             this.textChat = '';
+
+            setTimeout (this.textReceivedOK, 1000, this.activeContact);
+        },
+
+        /**
+         * Function that automatically respond to the text received
+         * adding it to the messages received
+         * @param {number} index of the user who was getting the message 
+         */        
+        textReceivedOK(index) {
+            const obj = {
+                date: this.getTime(),
+                text: 'ok',
+                status: 'received',
+            }
+            this.contacts[index].messages.push(obj);
         }
     },
 
