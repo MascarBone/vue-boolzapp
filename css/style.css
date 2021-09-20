@@ -6,23 +6,22 @@ ul {
     padding-left: 0;
     margin-bottom: 0;
 }
-p {
+h4 {
+    margin-bottom: 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+h5 {
+    font-size: 1rem;
+    font-weight: 600;
     margin-bottom: 0;
 }
-.my_bg-blue-water {
-    background-color: rgb(0, 150, 136);
-}
-.my_bg-grey {
-    background-color: rgb(219, 219, 211);
-}
-.my_bg-light-grey {
-    background-color: rgb(234, 234, 234);
-}
-.my_bg-light-blue {
-    background-color: rgb(142, 218, 252);
+p {
+    margin-bottom: 0;
+    font-size: 0.9rem
 }
 .my_bg-light-orange-grey {
-    background-color: rgb(243, 238, 234);
+    /* background-color: rgb(243, 238, 234); */
 }
 .my_bg-green-sent {
     background-color: rgb(213, 249, 186);
@@ -30,17 +29,126 @@ p {
 .my_bg-white-received {
     background-color: rgb(255, 255, 255);
 }
+.my_border-radius-text {
+    border-radius: 15px;
+    padding: 5px 10px;
+}
 .my_bg-white {
     background-color: rgb(255, 255, 255);
+}
+
+.my_profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(234, 234, 234);
+    padding: 10px;
+}
+.my_profile_info {
+    display: flex;
+    align-items: center;
+}
+.my_profile_avatar {
+    border-radius: 50%;
+    overflow: hidden;
+}
+.my_profile_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 15px;
+}
+.my_profile_text > p {
+    color: grey;
+}
+.my_profile_options > i {
+    margin-right: 10px;
+    color: rgb(160, 160, 160);
+}
+.my_notices
+{
+    display: flex;
+    align-items: center;
+    background-color: rgb(142, 218, 252);
+    padding: 10px 0;
+}
+.my_notices_logo {
+    width: 35px;
+    height: 35px;
+    background-color: white;
+    border-radius: 50%;
+    color: rgb(142, 218, 252);
+    position: relative;
+    margin-left: 15px;
+}
+.my_notices_text {
+    margin-left: 15px;
+}
+.my_notices_text a {
+    font-size: 0.9rem;
+    color: grey;
+}
+.my_search-bar {
+    display: flex;
+    align-items: center;
+    background-color: rgb(243, 238, 234);
+    padding: 5px;
+}
+.my_search-bar label {
+    background-color: white;
+    padding: 5px 25px;
+    border-right: 1px solid rgb(243, 238, 234) ;
+}
+.my_search-bar input{
+    border: none;
+    padding: 5px 5px;
+}
+.my_contacts {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+.my_contacts-text {
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+}
+.my_contacts-text p {
+    color: grey;
+}
+.my_contacts-time-preview {
+    position: absolute;
+    top: 2px;
+    right: 4px;
+    font-size: 0.8rem;
 }
 .my_box-conversation {
     background-image: url('../img/mine.jpg');
     background-repeat: repeat;
 }
-.my_border-radius {
-    border-radius: 15px;
-    padding: 5px 10px;
+.my_box-chat {
+    display: flex;
+    align-items: center;
+    background-color: rgb(243, 238, 234);
+    padding: 8px 0;
 }
+.my_box-chat > i {
+    padding: 0 35px;
+    font-size: 1.4rem;
+}
+.my_box-chat > input {
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+}
+.my_box-chat > * {
+    color: grey;
+}
+
+
+
 .wep-app {
     height: calc(100vh - 50px);
     margin: 25px 0;
@@ -49,11 +157,7 @@ p {
     overflow-y: scroll;
     height: 100%;
 }
-.my_time-preview {
-    position: absolute;
-    top: 2px;
-    right: 2px;
-}
+
 .my_bg-page {
     position: relative;
 }
@@ -65,8 +169,10 @@ p {
 }
 .top {
     height: 150px;
-}
+    background-color: rgb(0, 150, 136);
 
+}
 .bottom {
     height: calc(100vh - 150px);
+    background-color: rgb(219, 219, 211);
 }
