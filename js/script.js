@@ -105,14 +105,33 @@ const app = new Vue({
          * @returns the last time seen online
          */
          lastAccess: function() {
-            for (let i = this.contacts[this.activeContact].messages.length - 1; i >= 0; i--)
+            const temporary = this.contacts[this.activeContact].messages;
+            for (let i = temporary.length - 1; i >= 0; i--)
             {
-                if(this.contacts[this.activeContact].messages[i].status == 'received')
+                if(temporary[i].status == 'received')
                 {
-                    return this.contacts[this.activeContact].messages[i].date;
+                    return temporary[i].date;
                 }
             }
         },
+    },
+
+    watch: {
+        lookingForContact: function(text) {
+            for (element of this.contacts)
+            {                
+                console.log(element);
+                if (element.name.toLowerCase().includes(text.trim().toLowerCase()))
+                {
+                    element.selected = false;
+                }
+                else{
+                    element.selected = true;
+                }
+                console.table(element);
+            }
+            
+        }
     },
 
     methods: {
@@ -122,17 +141,6 @@ const app = new Vue({
          */
         selectContact(index) {
             this.activeContact = index;
-        },
-
-        /**
-         * Function that changes the property -lookingForContact- of data
-         * so the v-if in the list won't show anything that doesn't include
-         * the text written in the search-bar
-         */
-        searchContact() {
-            const text = document.querySelector('#search-bar');
-            this.lookingForContact = text.value;
-            text.value = "";
         },
 
         /**
