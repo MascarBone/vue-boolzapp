@@ -93,6 +93,7 @@ const app = new Vue({
 
         textChat: '',
         
+        lookingForContact: '',
     },
 
     methods: {
@@ -102,6 +103,17 @@ const app = new Vue({
          */
         selectContact(index) {
             this.activeContact = index;
+        },
+
+        /**
+         * Function that changes the property -lookingForContact- of data
+         * so the v-if in the list won't show anything that doesn't include
+         * the text written in the search-bar
+         */
+        searchContact() {
+            const text = document.querySelector('#search-bar');
+            this.lookingForContact = text.value;
+            text.value = "";
         },
 
         /**
