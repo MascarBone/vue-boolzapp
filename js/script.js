@@ -88,11 +88,15 @@ const app = new Vue({
                 ],
             },
         ],
+
+        activeContact : 3,
         
     },
 
     methods: {
-        
+        selectContact(index) {
+            this.activeContact = index;
+        }
     },
 
 })

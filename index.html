@@ -30,7 +30,7 @@
         
         <div class="container my_content">
             <div class="row gx-0 wep-app">
-                <div class="col-4 d-flex flex-column">
+                <div class="col-4 my_side my_side-left">
                     <div class="my_profile">
                         <div class="my_profile_info">
                             <div class="my_profile_avatar">
@@ -64,8 +64,8 @@
         
                     <div class="flex-grow-1 my_bg-white">
                         <ul class="overflow-y-scroll">
-                            <li v-for="element in contacts">
-                                <div class="my_contacts">
+                            <li v-for="(element,index) in contacts">
+                                <div @click="selectContact(index)" class="my_contacts" >
                                     <div class="my_profile_avatar">
                                         <img :src="'img/avatar' + element.avatar + '.jpg'" alt="profile pic">
                                     </div>
@@ -81,16 +81,16 @@
                     
                     
                 </div>
-                <div class="col-8 d-flex flex-column ">
+                <div class="col-8 my_side my_side-right">
                     <div class="my_profile">
                         <div class="my_profile_info">
                             <div class="my_profile_avatar">
                                 <!-- note: v-bind at img, to get the selected contact -->
-                                <img src="img/avatar_6.jpg" alt="">
+                                <img :src="'img/avatar' + contacts[activeContact].avatar + '.jpg'" alt="">
                             </div>
                             <div class="my_profile_text">
-                                <h4>Nome Utente</h4>
-                                <p>Data dell'ultimo accesso dell'utente</p>
+                                <h4>{{contacts[activeContact].name}}</h4>
+                                <p>Ultimo accesso</p>
                             </div>
                         </div>
                         <div class="my_profile_options">
@@ -100,25 +100,20 @@
                         </div>
                     </div>
 
-                    <div class="flex-grow-1 my_box-conversation overflow-y-scroll">
-                        <div class="mb-5"></div>
-                        <div class="row gx-0 flex-row-reverse me-5 mb-3">
-                            <div class="col-5 my_bg-green-sent my_border-radius">
+                    <div class="flex-grow-1 my_dialogue overflow-y-scroll">
+                        <div class="row flex-column gx-0 mt-5">
+                            <div v-for="(element, index) in contacts[activeContact].messages" class="col-5 my_dialogue_text" :class="element.status == 'received' ?  'my_dialogue_text-received' : 'my_dialogue_text-sent' ">
+                                <p>{{element.text}}</p>
+                                <span class="my_dialogue-time-preview">{{element.date}}</span>
+                            </div>
+                            <!-- <div class="col-5 my_dialogue_text my_dialogue_text-sent">
                                 <p>Hai portato a spasso il cane?</p>
                                 <span>ora del messaggio</span>
                             </div>
-                        </div>
-                        <div class="row gx-0 flex-row-reverse me-5 mb-3">
-                            <div class="col-5 my_bg-green-sent my_border-radius">
+                            <div class="col-5 my_dialogue_text my_dialogue_text-received">
                                 <p>Hai portato a spasso il cane?</p>
                                 <span>ora del messaggio</span>
-                            </div>
-                        </div>
-                        <div class="row gx-0 ms-5 mb-3">
-                            <div class="col-5 my_bg-white-received my_border-radius">
-                                <p>Hai portato a spasso il cane?</p>
-                                <span>ora del messaggio</span>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
 

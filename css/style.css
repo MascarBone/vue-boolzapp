@@ -20,15 +20,6 @@ p {
     margin-bottom: 0;
     font-size: 0.9rem
 }
-.my_bg-light-orange-grey {
-    /* background-color: rgb(243, 238, 234); */
-}
-.my_bg-green-sent {
-    background-color: rgb(213, 249, 186);
-}
-.my_bg-white-received {
-    background-color: rgb(255, 255, 255);
-}
 .my_border-radius-text {
     border-radius: 15px;
     padding: 5px 10px;
@@ -36,7 +27,13 @@ p {
 .my_bg-white {
     background-color: rgb(255, 255, 255);
 }
-
+.my_side {
+    display: flex;
+    flex-direction: column;
+}
+.my_side-right{
+    border-left: 1px solid lightgrey;
+}
 .my_profile {
     display: flex;
     justify-content: space-between;
@@ -121,10 +118,11 @@ p {
 .my_contacts-time-preview {
     position: absolute;
     top: 2px;
-    right: 4px;
-    font-size: 0.8rem;
+    right: 5px;
+    font-size: 0.7rem;
+    color: grey;
 }
-.my_box-conversation {
+.my_dialogue {
     background-image: url('../img/mine.jpg');
     background-repeat: repeat;
 }
@@ -146,6 +144,30 @@ p {
 .my_box-chat > * {
     color: grey;
 }
+.my_dialogue_text {
+    position: relative;
+    border-radius: 10px;
+    padding: 15px 10px;
+    margin-bottom: 1rem;
+}
+.my_dialogue_text-sent {
+    background-color: rgb(213, 249, 186);
+    align-self: flex-end;
+    margin-right: 3rem;
+}
+.my_dialogue_text-received {
+    background-color: rgb(255, 255, 255);
+    align-self: flex-start;
+    margin-left: 3rem;
+}
+.my_dialogue-time-preview {
+    position: absolute;
+    bottom: 2px;
+    right: 5px;
+    font-size: 0.7rem;
+    color: grey;
+}
+
 
 
 
