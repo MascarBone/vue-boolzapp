@@ -94,6 +94,25 @@ const app = new Vue({
         textChat: '',
         
         lookingForContact: '',
+
+    },
+
+    computed: {
+        
+        /**
+         * Computed property to get the last time the contact
+         * was online sending a message to the user
+         * @returns the last time seen online
+         */
+         lastAccess: function() {
+            for (let i = this.contacts[this.activeContact].messages.length - 1; i >= 0; i--)
+            {
+                if(this.contacts[this.activeContact].messages[i].status == 'received')
+                {
+                    return this.contacts[this.activeContact].messages[i].date;
+                }
+            }
+        },
     },
 
     methods: {
@@ -156,7 +175,7 @@ const app = new Vue({
                 status: 'received',
             }
             this.contacts[index].messages.push(obj);
-        }
+        },
     },
 
 })

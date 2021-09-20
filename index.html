@@ -86,12 +86,11 @@
                     <div class="my_profile">
                         <div class="my_profile_info">
                             <div class="my_profile_avatar">
-                                <!-- note: v-bind at img, to get the selected contact -->
                                 <img :src="'img/avatar' + contacts[activeContact].avatar + '.jpg'" alt="">
                             </div>
                             <div class="my_profile_text">
                                 <h4>{{contacts[activeContact].name}}</h4>
-                                <p>Ultimo accesso</p>
+                                <p>Last Online {{lastAccess}}</p>
                             </div>
                         </div>
                         <div class="my_profile_options">
