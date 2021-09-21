@@ -114,25 +114,39 @@ const app = new Vue({
                 }
             }
         },
+
+        // searchedContact: function() {
+        //     console.log('computed');
+
+        //     for (element of this.contacts)
+        //     {                
+        //         if (element.name.toLowerCase().includes(this.lookingForContact.trim().toLowerCase()))
+        //         {
+        //             searchedContact
+        //             return true;
+        //         }
+        //         else{
+        //             return false;
+        //         }
+        //     }
+        // },
+
     },
 
-    watch: {
-        lookingForContact: function(text) {
-            for (element of this.contacts)
-            {                
-                console.log(element);
-                if (element.name.toLowerCase().includes(text.trim().toLowerCase()))
-                {
-                    element.selected = false;
-                }
-                else{
-                    element.selected = true;
-                }
-                console.table(element);
-            }
-            
-        }
-    },
+    // watch: {
+    //     lookingForContact: function(text) {
+    //         for (element of this.contacts)
+    //         {                
+    //             if (element.name.toLowerCase().includes(text.trim().toLowerCase()))
+    //             {
+    //                 element.selected = false;
+    //             }
+    //             else{
+    //                 element.selected = true;
+    //             }
+    //         }            
+    //     }
+    // },
 
     methods: {
         /**
@@ -184,6 +198,22 @@ const app = new Vue({
             }
             this.contacts[index].messages.push(obj);
         },
+
+        // searchBarFilter: function(text) {
+        //     console.log(text);
+        //     for (element of this.contacts)
+        //     {                
+        //         if (element.name.toLowerCase().includes(this.lookingForContact.trim().toLowerCase()))
+        //         {
+        //             element.selected = false;
+        //             console.table(element);
+        //         }
+        //         else{
+        //             element.selected = true;
+        //             console.table(element);
+        //         }
+        //     }                    
+        // }
     },
 
 })
