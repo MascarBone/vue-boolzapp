@@ -106,16 +106,16 @@ p {
     align-items: center;
     padding: 10px;
 }
-.my_contacts-text {
+.my_contacts_text {
     align-self: flex-start;
     display: flex;
     flex-direction: column;
     margin-left: 15px;
 }
-.my_contacts-text p {
+.my_contacts_text p {
     color: grey;
 }
-.my_contacts-time-preview {
+.my_contacts_time-preview {
     position: absolute;
     top: 2px;
     right: 5px;
@@ -160,12 +160,28 @@ p {
     align-self: flex-start;
     margin-left: 3rem;
 }
-.my_dialogue-time-preview {
+.my_dialogue_time-preview {
     position: absolute;
     bottom: 2px;
     right: 5px;
     font-size: 0.7rem;
     color: grey;
+}
+.my_dialogue_modify {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-25%);
+    background-color:rgba(235, 235, 235, 0.945);
+    border: 1px solid rgba(0, 0, 0, 0.24);
+    z-index: 1;
+}
+.my_visible {
+    display: block;
+}
+.my_hide {
+    display: none;
+
 }
 /* .my_selected {
     background-color: rgb(234, 234, 234);

@@ -166,7 +166,9 @@ const app = new Vue({
             return (now.getDate() < 10 ? '0' : '') + now.getDate() + "/" 
                 + ((now.getMonth()+1) < 10 ? '0' : '') + (now.getMonth()+1) + "/"
                 + now.getFullYear() + " "
-                + now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
+                + ((now.getHours()+1) < 10 ? '0' : '') + now.getHours() + ':'
+                + ((now.getMinutes()+1) < 10 ? '0' : '') + now.getMinutes() + ':'
+                + ((now.getSeconds()+1) < 10 ? '0' : '') + now.getSeconds();
         },
 
         /**
@@ -197,6 +199,24 @@ const app = new Vue({
                 status: 'received',
             }
             this.contacts[index].messages.push(obj);
+        },
+
+        removeMsg(point) {
+            console.log('hey');
+            const temporary = this.contacts[this.activeContact].messages;
+            console.log(temporary);
+            console.log(point);
+            temporary.forEach((element,index) => {
+                if(index == point)
+                {
+                    element.selected = true;
+                }
+                else
+                {
+                    element.selected = false;
+                }
+            });
+            
         },
 
         // searchBarFilter: function(text) {
