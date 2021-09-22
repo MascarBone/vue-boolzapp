@@ -169,13 +169,16 @@ p {
 }
 .my_dialogue_modify {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-25%);
+    right: 0;
+    bottom: 100%;
     background-color:rgba(235, 235, 235, 0.945);
     border: 1px solid rgba(0, 0, 0, 0.24);
     z-index: 1;
+    /* display: none; */
 }
+/* .my_dialogue_text:hover .my_dialogue_modify {
+    display: block;
+} */
 .my_visible {
     display: block;
 }

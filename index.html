@@ -72,9 +72,9 @@
                                     </div>
                                     <div class="my_contacts_text">
                                         <h4>{{element.name}}</h4>
-                                        <p>{{element.messages[element.messages.length-1].text}}</p>                                        
+                                        <p>{{lastText(element)}}</p>
                                     </div>
-                                    <span class="my_contacts_time-preview">{{element.messages[element.messages.length-1].date}}</span>
+                                    <span class="my_contacts_time-preview">{{lastTime(element)}}</span>
                                 </div>                                
                             </li>
                         </ul>
@@ -103,10 +103,13 @@
                     <div class="flex-grow-1 my_dialogue overflow-y-scroll">
                         <div class="row flex-column gx-0 mt-5">
                             <div v-for="(element, index) in contacts[activeContact].messages" class="col-5 my_dialogue_text" :class="element.status == 'received' ?  'my_dialogue_text-received' : 'my_dialogue_text-sent' ">
-                                <p @click="removeMsg(index)">{{element.text}}</p>
+                                <p @click="selectMsg(index)">{{element.text}}</p>
                                 <span class="my_dialogue_time-preview">{{element.date}}</span>
-                                <div class="my_dialogue_modify" :class="element.selected ? 'my_show' : 'my_hide' ">
-                                    <span>Cancella messaggio</span>
+                                <!-- :class="element.selected ? 'my_show' : 'my_hide' " -->
+                                <div v-if="activeMsg == index" class="my_dialogue_modify">
+                                    <i class="fas fa-angle-down"></i>
+                                    <i class="fas fa-angle-up"></i>
+                                    <span @click="removeMsg(index)">Cancella messaggio</span>
                                 </div>
                             </div>
                         </div>

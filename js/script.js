@@ -91,6 +91,8 @@ const app = new Vue({
 
         activeContact : 0,
 
+        activeMsg : -1,
+
         textChat: '',
         
         lookingForContact: '',
@@ -115,38 +117,12 @@ const app = new Vue({
             }
         },
 
-        // searchedContact: function() {
-        //     console.log('computed');
-
-        //     for (element of this.contacts)
-        //     {                
-        //         if (element.name.toLowerCase().includes(this.lookingForContact.trim().toLowerCase()))
-        //         {
-        //             searchedContact
-        //             return true;
-        //         }
-        //         else{
-        //             return false;
-        //         }
-        //     }
-        // },
+        // lastText: function() {
+        //     const temp = this.contacts[this.activeContact];
+        //     return temp.messages[temp.messages.length-1].text
+        // }
 
     },
-
-    // watch: {
-    //     lookingForContact: function(text) {
-    //         for (element of this.contacts)
-    //         {                
-    //             if (element.name.toLowerCase().includes(text.trim().toLowerCase()))
-    //             {
-    //                 element.selected = false;
-    //             }
-    //             else{
-    //                 element.selected = true;
-    //             }
-    //         }            
-    //     }
-    // },
 
     methods: {
         /**
@@ -155,8 +131,12 @@ const app = new Vue({
          */
         selectContact(index) {
             this.activeContact = index;
+            this.activeMsg = -1;
         },
 
+        selectMsg(index) {
+            this.activeMsg = index;
+        },
         /**
          * Function to get the date of the current time
          * @returns a string of the current time
@@ -201,22 +181,53 @@ const app = new Vue({
             this.contacts[index].messages.push(obj);
         },
 
-        removeMsg(point) {
-            console.log('hey');
+        lastText(array) {
+            return array.messages.length ? array.messages[array.messages.length-1].text : '';
+            // if (array.messages.length)
+            // {
+            //     return array.messages[array.messages.length-1].text;
+            // }
+            // else
+            // {
+            //     return '';
+            // }
+        },
+
+        lastTime(array) {
+            return array.messages.length ? array.messages[array.messages.length-1].date : '';
+        },
+
+        // displayMenu(indice) {
+
+
+        //     console.log(this.selected);
+        //     this.selected = false;
+        //     console.log(this.selected);
+
+        //     console.log('hey');
+        //     const temporary = this.contacts[this.activeContact].messages;
+        //     console.log(temporary);
+        //     console.log(indice);
+        //     temporary.forEach((element,index) => {
+        //         if(index == indice)
+        //         {
+        //             element.selected = true;
+        //         }
+        //         else
+        //         {
+        //             element.selected = false;
+        //         }
+        //     });
+        // },
+
+        removeMsg(index) {
+            console.log(index);
             const temporary = this.contacts[this.activeContact].messages;
-            console.log(temporary);
-            console.log(point);
-            temporary.forEach((element,index) => {
-                if(index == point)
-                {
-                    element.selected = true;
-                }
-                else
-                {
-                    element.selected = false;
-                }
-            });
-            
+            temporary.splice(index, 1);
+            console.table(temporary);
+
+            // To stop showing the dropdown menu
+            this.activeMsg = -1;
         },
 
         // searchBarFilter: function(text) {
