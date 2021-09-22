@@ -167,28 +167,28 @@ p {
     font-size: 0.7rem;
     color: grey;
 }
-.my_dialogue_modify {
+.my_dialogue_dropdown {
     position: absolute;
     right: 0;
-    bottom: 100%;
-    background-color:rgba(235, 235, 235, 0.945);
+    bottom: calc(100% + 5px);
+    background-color:rgba(255, 255, 255, 0.945);
     border: 1px solid rgba(0, 0, 0, 0.24);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 5px 15px;
     z-index: 1;
-    /* display: none; */
 }
-/* .my_dialogue_text:hover .my_dialogue_modify {
-    display: block;
-} */
-.my_visible {
-    display: block;
+.my_dropdown-click {
+    font-size: 1.6rem;
+    position: absolute;
+    padding: 0 5px;
+    top: 0;
+    right: 5px;
 }
-.my_hide {
-    display: none;
-
+.my_dropdown-click:hover {
+    border: 1px solid rgba(184, 184, 184, 0.637);
 }
-/* .my_selected {
-    background-color: rgb(234, 234, 234);
-} */
 
 
 

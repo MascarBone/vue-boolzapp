@@ -103,12 +103,10 @@
                     <div class="flex-grow-1 my_dialogue overflow-y-scroll">
                         <div class="row flex-column gx-0 mt-5">
                             <div v-for="(element, index) in contacts[activeContact].messages" class="col-5 my_dialogue_text" :class="element.status == 'received' ?  'my_dialogue_text-received' : 'my_dialogue_text-sent' ">
-                                <p @click="selectMsg(index)">{{element.text}}</p>
+                                <p>{{element.text}}</p>
                                 <span class="my_dialogue_time-preview">{{element.date}}</span>
-                                <!-- :class="element.selected ? 'my_show' : 'my_hide' " -->
-                                <div v-if="activeMsg == index" class="my_dialogue_modify">
-                                    <i class="fas fa-angle-down"></i>
-                                    <i class="fas fa-angle-up"></i>
+                                <i @click="selectMsg(index)" class="fas fa-angle-down my_dropdown-click"></i>
+                                <div v-if="activeMsg == index" disabled="enabled" class="my_dialogue_dropdown">
                                     <span @click="removeMsg(index)">Cancella messaggio</span>
                                 </div>
                             </div>

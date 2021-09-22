@@ -135,7 +135,7 @@ const app = new Vue({
         },
 
         selectMsg(index) {
-            this.activeMsg = index;
+            this.activeMsg == index ? this.activeMsg = -1 : this.activeMsg = index;
         },
         /**
          * Function to get the date of the current time
@@ -245,6 +245,7 @@ const app = new Vue({
         //         }
         //     }                    
         // }
+
     },
 
 })
