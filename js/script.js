@@ -95,7 +95,7 @@ const app = new Vue({
 
         textChat: '',
         
-        lookingForContact: '',
+        inputSearch: '',
 
     },
 
@@ -117,9 +117,31 @@ const app = new Vue({
             }
         },
 
-        // lastText: function() {
-        //     const temp = this.contacts[this.activeContact];
-        //     return temp.messages[temp.messages.length-1].text
+        // obj.name.toLowerCase().includes(this.lookingForContact.trim().toLowerCase())
+             
+        
+        // inputSearch: {
+        //     get: function() {                
+        //         console.log('get');
+        //         return ;
+        //     },
+
+        //     set: function(newValue) {
+        //         console.log(newValue);
+        //         for (element of this.contacts)
+        //         {
+        //             console.log('set')
+
+        //             // console.log(element);
+        //             // if (element.name.toLowerCase().includes(this.lookingForContact.trim().toLowerCase()))
+        //             // {
+        //             //     element.visible = true;
+        //             // }else {
+        //             //     element.visible = false;
+        //             // }
+        //         }
+        //     }
+           
         // }
 
     },
@@ -249,13 +271,27 @@ const app = new Vue({
          * @param {object} obj rapresenting the current contact v-for is cycling
          * @returns true or false
          */
-        searchBarFilter: function(obj) {
-            console.log(obj);
-            if(obj.name.toLowerCase().includes(this.lookingForContact.trim().toLowerCase()))
+        // searchBarFilter: function(obj) {
+        //     console.log(obj);
+        //     if(obj.name.toLowerCase().includes(this.lookingForContact.trim().toLowerCase()))
+        //     {
+        //         return true;
+        //     }
+        //     return false;
+        // }
+
+        // Sobstitute of the method above
+        searchBarUp() {
+            console.log('hey');
+            for(element of this.contacts)
             {
-                return true;
+                if(element.name.toLowerCase().includes(this.inputSearch.trim().toLowerCase()))
+                {
+                    element.visible = true;
+                }else {
+                    element.visible = false;
+                }
             }
-            return false;
         }
     },
 
