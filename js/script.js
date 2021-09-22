@@ -197,29 +197,6 @@ const app = new Vue({
             return array.messages.length ? array.messages[array.messages.length-1].date : '';
         },
 
-        // displayMenu(indice) {
-
-
-        //     console.log(this.selected);
-        //     this.selected = false;
-        //     console.log(this.selected);
-
-        //     console.log('hey');
-        //     const temporary = this.contacts[this.activeContact].messages;
-        //     console.log(temporary);
-        //     console.log(indice);
-        //     temporary.forEach((element,index) => {
-        //         if(index == indice)
-        //         {
-        //             element.selected = true;
-        //         }
-        //         else
-        //         {
-        //             element.selected = false;
-        //         }
-        //     });
-        // },
-
         removeMsg(index) {
             console.log(index);
             const temporary = this.contacts[this.activeContact].messages;
@@ -246,6 +223,9 @@ const app = new Vue({
         //     }                    
         // }
 
+        removeActiveMsgClick() {
+            this.activeMsg = -1;
+        }
     },
 
 })

@@ -22,7 +22,7 @@
 <body>
     
     <div id="app">
-    <div class="my_bg-page">
+    <div @click="removeActiveMsgClick" class="my_bg-page">
         <div class="top my_bg-blue-water">
         </div>
         <div class="bottom my_bg-grey">    
@@ -105,9 +105,9 @@
                             <div v-for="(element, index) in contacts[activeContact].messages" class="col-5 my_dialogue_text" :class="element.status == 'received' ?  'my_dialogue_text-received' : 'my_dialogue_text-sent' ">
                                 <p>{{element.text}}</p>
                                 <span class="my_dialogue_time-preview">{{element.date}}</span>
-                                <i @click="selectMsg(index)" class="fas fa-angle-down my_dropdown-click"></i>
+                                <i @click.stop="selectMsg(index)" class="fas fa-angle-down my_dropdown-click"></i>
                                 <div v-if="activeMsg == index" disabled="enabled" class="my_dialogue_dropdown">
-                                    <span @click="removeMsg(index)">Cancella messaggio</span>
+                                    <span @click.stop="removeMsg(index)">Cancella messaggio</span>
                                 </div>
                             </div>
                         </div>
