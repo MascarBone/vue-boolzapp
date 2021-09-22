@@ -126,6 +126,8 @@ const app = new Vue({
 
     methods: {
         /**
+         * Function to set the property 'activeContact' to the clicked contacts
+         * and will reset the 'activeMsg' property to default(-1)
          * 
          * @param {number} index the current selected contact
          */
@@ -134,11 +136,17 @@ const app = new Vue({
             this.activeMsg = -1;
         },
 
+        /**
+         * Function to set the property 'activeMsg' to the clicked message
+         * 
+         * @param {number} index of the currenct selected message 
+         */
         selectMsg(index) {
             this.activeMsg == index ? this.activeMsg = -1 : this.activeMsg = index;
         },
         /**
          * Function to get the date of the current time
+         * 
          * @returns a string of the current time
          */
         getTime() {
@@ -170,6 +178,7 @@ const app = new Vue({
         /**
          * Function that automatically respond to the text received
          * adding it to the messages received
+         * 
          * @param {number} index of the user who was getting the message 
          */        
         textReceivedOK(index) {
@@ -181,11 +190,19 @@ const app = new Vue({
             this.contacts[index].messages.push(obj);
         },
 
-        lastText(array) {
-            return array.messages.length ? array.messages[array.messages.length-1].text : '';
-            // if (array.messages.length)
+        /**
+         * Function to show a message as preview below a contact
+         * 
+         * @param {object} object that contains the property(array) 'messages'
+         * @returns string that rapresent part of the last message in chat 
+         */
+        lastText(obj) {
+            
+            return obj.messages.length ? obj.messages[obj.messages.length-1].text.substring(0,30) + '...' : '' ;
+                        
+            // if (obj.messages.length)
             // {
-            //     return array.messages[array.messages.length-1].text;
+            //     return obj.messages[obj.messages.length-1].text;
             // }
             // else
             // {
@@ -193,20 +210,41 @@ const app = new Vue({
             // }
         },
 
-        lastTime(array) {
-            return array.messages.length ? array.messages[array.messages.length-1].date : '';
+        /**
+         * Function to show the time of the last message
+         * 
+         * @param {object} object that contains the property(array) 'messages'
+         * @returns string that rapresent the time of the last message
+         */
+        lastTime(obj) {
+            return obj.messages.length ? obj.messages[obj.messages.length-1].date : '';
         },
 
+
+        /**
+         * Function that remove a message from the list of messages of a contact
+         * 
+         * @param {number} index that point to the actual message has been selected
+         */
         removeMsg(index) {
-            console.log(index);
             const temporary = this.contacts[this.activeContact].messages;
             temporary.splice(index, 1);
-            console.table(temporary);
 
             // To stop showing the dropdown menu
             this.activeMsg = -1;
         },
 
+        /**
+         * Function that everytime a click happens outside of a message box
+         * the 'activeMsg' will be reset and will hide the dropdown shown before
+         */
+        removeActiveMsgClick() {
+            console.log('ciao');
+            this.activeMsg = -1;
+        }
+
+
+        
         // searchBarFilter: function(text) {
         //     console.log(text);
         //     for (element of this.contacts)
@@ -222,10 +260,6 @@ const app = new Vue({
         //         }
         //     }                    
         // }
-
-        removeActiveMsgClick() {
-            this.activeMsg = -1;
-        }
     },
 
 })
