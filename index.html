@@ -59,13 +59,12 @@
                     
                     <div class="my_search-bar">
                         <label for="search-contacts"><i class="fas fa-search"></i></label></i>
-                        <!-- @keyup="searchBarFilter"  -->
                         <input v-model="lookingForContact" type="text" placeholder="Cerca o inizia una nuova chat" class="flex-grow-1" id="search-bar">
                     </div>
         
                     <div class="flex-grow-1 my_bg-white">
                         <ul class="overflow-y-scroll">
-                            <li v-if="element.name.toLowerCase().includes(lookingForContact.trim().toLowerCase())" v-for="(element,index) in contacts">
+                            <li v-if="searchBarFilter(element)" v-for="(element,index) in contacts">
                                 <!-- @click.stop will prevent the propagation of the event to the outer HTML -->
                                 <div @click.stop="selectContact(index)" class="my_contacts">
                                     <div class="my_profile_avatar">

@@ -239,27 +239,24 @@ const app = new Vue({
          * the 'activeMsg' will be reset and will hide the dropdown shown before
          */
         removeActiveMsgClick() {
-            console.log('ciao');
             this.activeMsg = -1;
+        },
+
+        /**
+         * Function that confronts 'lookingForContact' with the property 'name' of a contact
+         * to see if there's a match, then v-if will only show the ones returning true
+         * 
+         * @param {object} obj rapresenting the current contact v-for is cycling
+         * @returns true or false
+         */
+        searchBarFilter: function(obj) {
+            console.log(obj);
+            if(obj.name.toLowerCase().includes(this.lookingForContact.trim().toLowerCase()))
+            {
+                return true;
+            }
+            return false;
         }
-
-
-        
-        // searchBarFilter: function(text) {
-        //     console.log(text);
-        //     for (element of this.contacts)
-        //     {                
-        //         if (element.name.toLowerCase().includes(this.lookingForContact.trim().toLowerCase()))
-        //         {
-        //             element.selected = false;
-        //             console.table(element);
-        //         }
-        //         else{
-        //             element.selected = true;
-        //             console.table(element);
-        //         }
-        //     }                    
-        // }
     },
 
 })
