@@ -95,7 +95,7 @@ const app = new Vue({
 
         textChat: '',
         
-        inputSearch: '',
+        lookingForContact: '',
 
     },
 
@@ -117,32 +117,36 @@ const app = new Vue({
             }
         },
 
+
+
         // obj.name.toLowerCase().includes(this.lookingForContact.trim().toLowerCase())
              
         
-        // inputSearch: {
-        //     get: function() {                
-        //         console.log('get');
-        //         return ;
-        //     },
+        inputSearch: {
+            get: function() {                
+                console.log('get');
+                return this.lookingForContact;
+            },
 
-        //     set: function(newValue) {
-        //         console.log(newValue);
-        //         for (element of this.contacts)
-        //         {
-        //             console.log('set')
+            set: function(newValue) {
+                console.log(newValue);
+                for (element of this.contacts)
+                {
+                    console.log('set')
 
-        //             // console.log(element);
-        //             // if (element.name.toLowerCase().includes(this.lookingForContact.trim().toLowerCase()))
-        //             // {
-        //             //     element.visible = true;
-        //             // }else {
-        //             //     element.visible = false;
-        //             // }
-        //         }
-        //     }
+                    // console.log(element);
+                    if (element.name.toLowerCase().includes(newValue.trim().toLowerCase()))
+                    {
+                        element.visible = true;
+                    }else {
+                        element.visible = false;
+                    }
+                    console.log(element.visible);
+                }
+                this.lookingForContact = newValue;
+            }
            
-        // }
+        }
 
     },
 
